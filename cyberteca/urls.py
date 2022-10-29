@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from cybertecaapp.views import index
+from cybertecaapp.views import index,base,new_book
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('index/', index, name='index'),
+    path('base/', base, name='base'),
+    path('new_book/', new_book, name='new_book'),
 ]

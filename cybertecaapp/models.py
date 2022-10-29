@@ -11,8 +11,17 @@ class Categorias(models.Model):
     categoria = models.CharField(max_length=255, null=True)
 
 
+
+    def __str__(self):
+        return self.categoria
+
+
 class Autores(models.Model):
     nome = models.CharField(max_length=255, null=True)
+
+
+    def __str__(self):
+        return self.nome
 
 
 
@@ -27,3 +36,4 @@ class Livros(models.Model):
         'Categorias', on_delete=models.SET_NULL, null=True)
     autoresid = models.ForeignKey(
         'Autores', on_delete=models.SET_NULL, null=True)
+

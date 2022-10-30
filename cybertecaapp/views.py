@@ -18,5 +18,5 @@ def new_book(request):
         if form.is_valid():
             obj = form.save()
             obj.save()
-            form= LivroForm
+            form= LivroForm()
     return render(request, 'cyberteca/new_book.html',{'form':form})

@@ -1,12 +1,61 @@
 {% extends 'cyberteca/base.html' %}
 {% load crispy_forms_tags %}
+{% load widget_tweaks %}
 
 {% block content %}
-    <div class=" container">
-        <form method="post" enctype="multipart/form-data">
-            {{form|crispy }}
-            <input type="submit" value="Enviar" class="btn btn-primary">
-        </form>
+
+    <div class="align-content-center">
+        <div class="row">
+            <div class="col-8">
+                <form method="post" enctype="multipart/form-data" class="form-control pt-2 pb-3">
+
+                    <label for="material_id" class="form-label">Material_id:</label>
+
+                    <div id='material_id' class="col-2">
+                        {% csrf_token %}
+                        {% render_field form.materialid type='list' class=" form-control ms-5" %}
+                    </div>
+                    <label for="chamada" class="form-label">Chamada:</label>
+                    <div id="chamada" class="col-7">
+                        {% render_field form.chamada type='text' class="form-control ms-5" %}
+                    </div>
+
+                    <label for="titulo" class="form-label">Título:</label>
+                    <div id='titulo ' class="col-7">
+                        {% render_field form.titulo type='text' class=" form-control ms-5" %}
+                    </div>
+
+                    <label for="ano" class="form-label">Ano</label>
+                    <div id='ano' class="col-2 ">
+                        {% render_field form.ano type='' class=" form-control ms-5" %}
+                    </div>
+
+                    <label for="data_cad" class="form-label">Data de Cadastro: </label>
+                    <div id='data_cad' class="col-4">
+                        {% render_field form.data_cadastro type='date' class=" form-control ms-5" %}
+                    </div>
+
+                    <label for="img" class="form-label">Imagem:</label>
+                    <div id='img' class="col-7">
+                        {% render_field form.imagem class=" form-control ms-5" %}
+                    </div>
+                    <label for="categoria" class="form-label">Categoria:</label>
+                    <div id="categoria" class="col-7">
+                        {% render_field form.categoriaid class=" form-control ms-5" %}
+                    </div>
+
+                    <label for="autores" class="form-label">Autor :</label>
+                    <div id="autores" class="col-7">
+                        {% render_field form.autoresid class=" form-control ms-5" %}
+                    </div>
+
+
+                    <input type="submit" value="Enviar" class="btn btn-primary input-group mt-2">
+                </form>
+            </div>
+
+
+        </div>
     </div>
 
 {% endblock content %}

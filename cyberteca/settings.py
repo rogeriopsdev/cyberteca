@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'cybertecaapp',
     "crispy_forms",
     "crispy_bootstrap5",
+    'widget_tweaks',
 ]
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
@@ -117,8 +118,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
+STATIC_URL = '/static/'
+MEDIA_URL ='/img/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR,'static'),
+]
+MEDIA_ROOT =    os.path.join(BASE_DIR, 'static/img')
+
+LOGIN_REDIRECT_URL ='index'
+LOGOUT_REDIRECT_URL ='login'
+LOGIN_URL ='login'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
